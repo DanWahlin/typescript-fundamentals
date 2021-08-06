@@ -1,6 +1,6 @@
 # TypeScript Fundamentals
 
-Code samples from the TypeScript Fundamentals course.
+Code samples from the TypeScript Fundamentals course on [Pluralsight.com](https://pluralsight.com)
 
 ## Running the Project using Webpack
 
