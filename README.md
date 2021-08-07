@@ -1,8 +1,8 @@
 # TypeScript Fundamentals
 
-Code samples from the TypeScript Fundamentals course on [Pluralsight.com](https://pluralsight.com)
+Code samples from the TypeScript Fundamentals course on [Pluralsight.com](https://pluralsight.com). Samples for each module from the course can be found in the `src` directory.
 
-## Running the Project using Webpack
+## Running the Project
 
 1. Install Node.js LTS ([https://nodejs.org](https://nodejs.org))
 1. Open a command window at the root of this project
