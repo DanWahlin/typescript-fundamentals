@@ -1,0 +1,175 @@
+html > body {
+  margin: 0 !important;
+}
+
+.main-section {
+  padding: 1rem 1rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.125;
+  word-break: break-word;
+}
+.sub-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1;
+  word-break: break-word;
+}
+
+header {
+  font-weight: bold;
+  font-family: Arial;
+  span {
+    letter-spacing: 0px;
+    &.brand-first {
+      color: #fff;
+    }
+    &.brand-second {
+      color: #ccc;
+    }
+    &.brand-third {
+      color: $javascript;
+    }
+  }
+  .navbar-item.nav-home {
+    border: 3px solid transparent;
+    border-radius: 0%;
+    &:hover {
+      border-right: 3px solid $primary-light;
+      border-left: 3px solid $primary-light;
+    }
+  }
+  .fab {
+    font-size: 24px;
+    &.js-logo {
+      color: $javascript;
+    }
+  }
+  .buttons {
+    i.fab {
+      color: #fff;
+      margin-left: 20px;
+      margin-right: 10px;
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+}
+
+.content-title-group {
+  margin-bottom: 16px;
+  h2 {
+    border-left: 16px solid $primary;
+    border-bottom: 2px solid $primary;
+    padding-left: 8px;
+    padding-right: 16px;
+    display: inline-block;
+    text-transform: uppercase;
+    color: #555;
+    letter-spacing: 0px;
+    &:hover {
+      color: $link;
+    }
+  }
+}
+
+button.button {
+  border: 0;
+  color: $accent-color;
+  &:hover {
+    color: $typescript; //$link;
+  }
+}
+ul.list {
+  box-shadow: none;
+}
+div.card-content {
+  background-color: $shade-light;
+  color: #999;
+  .name {
+    font-size: 28px;
+    color: #000;
+  }
+  .description {
+    font-size: 20px;
+  }
+  .email {
+    font-size: 14px;
+  }
+  background-color: $shade-light;
+}
+.card {
+  margin-bottom: 1em;
+}
+
+p.card-header-title {
+  background-color: $primary;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #fff;
+  display: block;
+  padding-left: 24px;
+}
+
+.navbar {
+  margin-right: -6px;
+}
+
+.order-info {
+  color: #363636;
+  font-size: 14px;
+  margin-bottom: -0.5rem;
+}
+
+.columns.order-header,
+.columns.order-item {
+  background-color: #fafafa;
+  font-size: 12px;
+  color: #999;
+  line-height: 1px;
+}
+
+.columns.order-header {
+  border-bottom: 1px solid #ccc;
+  margin-top: 1em;
+}
+
+#message-box {
+  margin: 2em;
+  > * {
+    padding: 12px;
+  }
+}
+
+nav .field select {
+  width: 150px;
+}
+
+.modal-card {
+  width: 400px;
+}
+.modal-card-foot button {
+  display: inline-block;
+  width: 80px;
+}
+
+.modal-card-head,
+.modal-card-body {
+  text-align: center;
+}
+
+.message-body {
+  white-space: pre;
+}
+
+.progress {
+  margin: 16px 0;
+}
+
+.button-bar {
+  margin: 16px 0;
+}
