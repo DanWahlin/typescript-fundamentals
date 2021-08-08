@@ -11,7 +11,10 @@ Code samples from the TypeScript Fundamentals course on [Pluralsight.com](https:
 
 **NOTE:**
 
-Running `npm start` compiles your TypeScript and loads the JavaScript bundle into memory (you won't see a `dist` folder created in this case). 
-If you want to compile your TypeScript and create a bundle in the `dist` folder you can run `npm run webpack` or 
-`npm run webpack:w` (if you want webpack to watch for changes to files). 
+Running `npm start` compiles your TypeScript and loads the JavaScript bundle into memory (you won't see a `dist` folder created in this case).
+If you want to compile your TypeScript and create a bundle in the `dist` folder you can run `npm run webpack` or
+`npm run webpack:w` (if you want webpack to watch for changes to files).
 
+## Credits
+
+Font Awesome Free icons are being used as oer the kit guidelines https://fontawesome.com/kits
