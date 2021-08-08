@@ -2,14 +2,25 @@
   "name": "typescript-fundamentals",
   "version": "1.0.0",
   "description": "TypeScript Fundamentals course examples.",
+  "contributors": [
+    {
+      "name": "Dan Wahlin",
+      "url": "https://www.twitter.com/danwahlin"
+    },
+    {
+      "name": "John Papa",
+      "url": "https://www.twitter.com/john_papa"
+    }
+  ],
   "scripts": {
     "webpack": "webpack --mode development",
     "webpack:w": "webpack --mode development --watch",
-    "start": "webpack serve --mode development --open"
+    "start": "webpack serve --mode development --open",
+    "pretty": "prettier -w ./src/*"
   },
   "author": "",
   "private": true,
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "bulma": "^0.9.3",
     "copy-webpack-plugin": "^9.0.1",
@@ -17,6 +28,7 @@
     "html-webpack-plugin": "^5.3.2",
     "mini-css-extract-plugin": "^2.2.0",
     "node-sass": "^6.0.1",
+    "prettier": "^2.3.2",
     "sass-loader": "^12.1.0",
     "style-loader": "^3.2.1",
     "ts-loader": "^9.2.3",
