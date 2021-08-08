@@ -1,7 +1,7 @@
 {
-  "name": "adding-typescript",
+  "name": "typescript-fundamentals",
   "version": "1.0.0",
-  "description": "Adding typescript to a project",
+  "description": "TypeScript Fundamentals course examples.",
   "scripts": {
     "webpack": "webpack --mode development",
     "webpack:w": "webpack --mode development --watch",
@@ -12,6 +12,7 @@
   "license": "ISC",
   "devDependencies": {
     "bulma": "^0.9.3",
+    "copy-webpack-plugin": "^9.0.1",
     "css-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.2",
     "mini-css-extract-plugin": "^2.2.0",
