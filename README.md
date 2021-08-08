@@ -17,4 +17,4 @@ If you want to compile your TypeScript and create a bundle in the `dist` folder 
 
 ## Credits
 
-Font Awesome Free icons are being used as oer the kit guidelines https://fontawesome.com/kits
+Font Awesome Free icons are being used as per the kit guidelines https://fontawesome.com/kits
