@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const htmlPlugins = generateHtmlPlugins('./src');
 const entryPoints = generateEntryPoints('./src', 'index.ts');
@@ -35,6 +36,9 @@ module.exports = {
       template: './index.html',
       inject: false,
     }),
+    new CopyPlugin({
+      patterns: [{ from: 'src/api', to: 'api' }],
+    }),
   ].concat(htmlPlugins),
   devServer: {
     contentBase: './dist',
@@ -54,7 +58,9 @@ function generateHtmlPlugins(root) {
     if (stats.isDirectory() && templateDir !== 'css') {
       // Read files in template directory
       const dirName = templateDir;
-      const templateFiles = fs.readdirSync(path.resolve(__dirname, root, templateDir));
+      const templateFiles = fs.readdirSync(
+        path.resolve(__dirname, root, templateDir),
+      );
       templateFiles.forEach((item) => {
         // Split names and extension
         const parts = item.split('.');
@@ -66,11 +72,14 @@ function generateHtmlPlugins(root) {
           plugins.push(
             new HtmlWebpackPlugin({
               filename: `${dirName}/index.html`,
-              template: path.resolve(__dirname, `${root}/${templateDir}/${name}.${extension}`),
+              template: path.resolve(
+                __dirname,
+                `${root}/${templateDir}/${name}.${extension}`,
+              ),
               inject: 'body',
               // Only include bundle/chunk associated with the templateDir directory
               chunks: [`${dirName}`],
-            })
+            }),
           );
         }
       });
@@ -87,7 +96,7 @@ function generateEntryPoints(root, entryScript) {
   let entryPoints = { css: './src/css/style.scss' };
   rootDir.forEach((templateDir) => {
     const stats = fs.lstatSync(path.resolve(__dirname, root, templateDir));
-    if (stats.isDirectory() && templateDir !== 'css') {
+    if (stats.isDirectory() && !['css', 'api'].includes(templateDir)) {
       entryPoints[templateDir] = `${root}/${templateDir}/${entryScript}`;
     }
   });

@@ -1,0 +1,47 @@
+[
+  {
+    "id": 10,
+    "name": "Pizza slice",
+    "icon": "fas fa-pizza-slice"
+  },
+  {
+    "id": 20,
+    "name": "Ice cream",
+    "icon": "fas fa-ice-cream"
+  },
+  {
+    "id": 30,
+    "name": "Cheese",
+    "icon": "fas fa-cheese"
+  },
+  {
+    "id": 40,
+    "name": "Bacon",
+    "icon": "fas fa-bacon"
+  },
+  {
+    "id": 50,
+    "name": "Fish",
+    "icon": "fas fa-fish"
+  },
+  {
+    "id": 60,
+    "name": "Apple",
+    "icon": "fas fa-apple-alt"
+  },
+  {
+    "id": 70,
+    "name": "Lemon",
+    "icon": "fas fa-lemon"
+  },
+  {
+    "id": 80,
+    "name": "Hot pepper",
+    "icon": "fas fa-pepper-hot"
+  },
+  {
+    "id": 90,
+    "name": "Cookie",
+    "icon": "fas fa-cookie"
+  }
+]
