@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CopyPlugin = require("copy-webpack-plugin");
+const CopyPlugin = require('copy-webpack-plugin');
 
 const excludeDirs = ['css', 'images', 'lib'];
 const htmlPlugins = generateHtmlPlugins('./src', excludeDirs);
@@ -34,13 +34,14 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({ filename: '[name]/style.css' }),
     new CopyPlugin({
-      patterns: [
-          { from: './src/images', to: 'images' }
-      ]
+      patterns: [{ from: './src/images', to: 'images' }],
     }),
     new HtmlWebpackPlugin({
       template: './index.html',
       inject: false,
+    }),
+    new CopyPlugin({
+      patterns: [{ from: 'src/api', to: 'api' }],
     }),
   ].concat(htmlPlugins),
   devServer: {
@@ -61,7 +62,9 @@ function generateHtmlPlugins(root, excludeDirs) {
     if (stats.isDirectory() && !excludeDirs.includes(templateDir)) {
       // Read files in template directory
       const dirName = templateDir;
-      const templateFiles = fs.readdirSync(path.resolve(__dirname, root, templateDir));
+      const templateFiles = fs.readdirSync(
+        path.resolve(__dirname, root, templateDir),
+      );
       templateFiles.forEach((item) => {
         // Split names and extension
         const parts = item.split('.');
@@ -73,11 +76,14 @@ function generateHtmlPlugins(root, excludeDirs) {
           plugins.push(
             new HtmlWebpackPlugin({
               filename: `${dirName}/index.html`,
-              template: path.resolve(__dirname, `${root}/${templateDir}/${name}.${extension}`),
+              template: path.resolve(
+                __dirname,
+                `${root}/${templateDir}/${name}.${extension}`,
+              ),
               inject: 'body',
               // Only include bundle/chunk associated with the templateDir directory
               chunks: [`${dirName}`],
-            })
+            }),
           );
         }
       });
@@ -94,7 +100,8 @@ function generateEntryPoints(root, entryScript, excludeDirs) {
   let entryPoints = { css: './src/css/style.scss' };
   rootDir.forEach((templateDir) => {
     const stats = fs.lstatSync(path.resolve(__dirname, root, templateDir));
-    if (stats.isDirectory() && !excludeDirs.includes(templateDir)) {
+    const staticAssetsToExclude = ['css', 'api', 'images'];
+    if (stats.isDirectory() && !staticAssetsToExclude.includes(templateDir)) {
       entryPoints[templateDir] = `${root}/${templateDir}/${entryScript}`;
     }
   });

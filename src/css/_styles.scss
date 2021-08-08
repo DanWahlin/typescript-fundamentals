@@ -19,6 +19,10 @@ html > body {
   word-break: break-word;
 }
 
+.main-menu {
+  margin: 20px;
+}
+
 header {
   font-weight: bold;
   font-family: Arial;
@@ -84,26 +88,27 @@ button.button {
     color: $typescript; //$link;
   }
 }
-ul.list {
-  box-shadow: none;
-}
+
 div.card-content {
   background-color: $shade-light;
   color: #999;
-  .name {
-    font-size: 28px;
+  .card-name {
+    font-size: 24px;
     color: #000;
+    padding-right: 20px;
   }
-  .description {
+  .card-id {
     font-size: 20px;
+    padding-right: 20px;
   }
-  .email {
-    font-size: 14px;
+  .card-icon {
+    padding-right: 20px;
   }
   background-color: $shade-light;
 }
 .card {
   margin-bottom: 1em;
+  width: 400px;
 }
 
 p.card-header-title {
@@ -117,25 +122,6 @@ p.card-header-title {
 
 .navbar {
   margin-right: -6px;
-}
-
-.order-info {
-  color: #363636;
-  font-size: 14px;
-  margin-bottom: -0.5rem;
-}
-
-.columns.order-header,
-.columns.order-item {
-  background-color: #fafafa;
-  font-size: 12px;
-  color: #999;
-  line-height: 1px;
-}
-
-.columns.order-header {
-  border-bottom: 1px solid #ccc;
-  margin-top: 1em;
 }
 
 #message-box {
