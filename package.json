@@ -1,7 +1,7 @@
 {
-  "name": "adding-typescript",
+  "name": "typescript-fundamentals",
   "version": "1.0.0",
-  "description": "Adding typescript to a project",
+  "description": "TypeScript Fundamentals course examples.",
   "scripts": {
     "webpack": "webpack --mode development",
     "webpack:w": "webpack --mode development --watch",
