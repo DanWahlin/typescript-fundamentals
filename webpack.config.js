@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
-const excludeDirs = ['css', 'images', 'lib'];
+const excludeDirs = ['css', 'images', 'lib', 'api'];
 const htmlPlugins = generateHtmlPlugins('./src', excludeDirs);
 const entryPoints = generateEntryPoints('./src', 'index.ts', excludeDirs);
 
@@ -100,8 +100,7 @@ function generateEntryPoints(root, entryScript, excludeDirs) {
   let entryPoints = { css: './src/css/style.scss' };
   rootDir.forEach((templateDir) => {
     const stats = fs.lstatSync(path.resolve(__dirname, root, templateDir));
-    const staticAssetsToExclude = ['css', 'api', 'images'];
-    if (stats.isDirectory() && !staticAssetsToExclude.includes(templateDir)) {
+    if (stats.isDirectory() && !excludeDirs.includes(templateDir)) {
       entryPoints[templateDir] = `${root}/${templateDir}/${entryScript}`;
     }
   });
