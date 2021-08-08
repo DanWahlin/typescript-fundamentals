@@ -34,14 +34,14 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({ filename: '[name]/style.css' }),
     new CopyPlugin({
-      patterns: [{ from: './src/images', to: 'images' }],
+      patterns: [
+        { from: 'src/images', to: 'images' }, 
+        { from: 'src/api', to: 'api' },
+      ],
     }),
     new HtmlWebpackPlugin({
       template: './index.html',
       inject: false,
-    }),
-    new CopyPlugin({
-      patterns: [{ from: 'src/api', to: 'api' }],
     }),
   ].concat(htmlPlugins),
   devServer: {
