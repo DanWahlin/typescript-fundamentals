@@ -2,9 +2,7 @@ import { Product, getProducts } from '../lib';
 
 export default async function updateOutput(id: string) {
   const products = await getProducts();
-
   const output = document.querySelector(`#${id}`);
-
   const html = layoutProducts(products);
 
   if (output && html) {
@@ -20,7 +18,8 @@ function layoutProducts(products: Product[]) {
       <i class="card-icon ${icon} fa-lg"></i>
     <span class="card-name">${name}</span>
     `;
-    const card = `<li>
+    const cardHtml = `
+    <li>
         <div class="card">
             <div class="card-content">
                 <div class="content">
@@ -30,8 +29,8 @@ function layoutProducts(products: Product[]) {
         </div>
     </li>
     `;
-    return card;
+    return cardHtml;
   });
-  let productList = `<ul>${items.join('')}</ul>`;
-  return productList;
+  let productsHtml = `<ul>${items.join('')}</ul>`;
+  return productsHtml;
 }
