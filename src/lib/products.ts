@@ -1,7 +1,8 @@
 import { productsURL } from './config';
+import { Product } from '.';
 
-export async function getProducts(): Promise<{id: number, name: string, icon: string}[]> {
+export async function getProducts(): Promise<Product[]> {
   const response: Response = await fetch(productsURL);
-  const products: {id: number, name: string, icon: string}[] = await response.json();
+  const products: Product[] = await response.json();
   return products;
 }
