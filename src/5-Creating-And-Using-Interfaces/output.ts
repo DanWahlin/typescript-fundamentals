@@ -1,4 +1,4 @@
-import { getProducts } from '../lib';
+import { Product, getProducts } from '../lib';
 
 export default async function updateOutput(id: string) {
   const products = await getProducts();
@@ -10,7 +10,7 @@ export default async function updateOutput(id: string) {
   }
 }
 
-function layoutProducts(products: {id: number, name: string, icon: string}[]) {
+function layoutProducts(products: Product[]) {
   const items = products.map((product) => {
     const { id, name, icon } = product;
     const productHtml = `

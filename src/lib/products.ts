@@ -1,5 +1,5 @@
 import { productsURL } from './config';
-import { Product } from './interfaces';
+import { Product } from '.';
 
 export async function getProducts(): Promise<Product[]> {
   const response: Response = await fetch(productsURL);
