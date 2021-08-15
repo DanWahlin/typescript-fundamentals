@@ -1,4 +1,4 @@
-import { Product, getProducts } from '../lib';
+import { getProducts, Product } from '../lib';
 
 export default async function updateOutput(id: string) {
   const products = await getProducts();
