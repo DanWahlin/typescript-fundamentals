@@ -1,5 +1,5 @@
-let x = 10;
-let y = 15;
+let x = 7;
+let y = 11;
 const sum = x + y;
 const result = `The sum of ${x} and ${y} is ${sum}`;
 console.log(result);
