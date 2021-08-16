@@ -10,7 +10,9 @@ export default async function updateOutput(id: string) {
   }
 }
 
-function layoutProducts(products: {id: number, name: string, icon: string}[]) {
+function layoutProducts(
+  products: { id: number; name: string; icon: string }[],
+) {
   const items = products.map((product) => {
     const { id, name, icon } = product;
     const productHtml = `
