@@ -16,7 +16,7 @@ class ProductOutput {
 
     if (this.output && html) {
       this.output.innerHTML = html;
- 
+
       // Add click handler
       this.output.addEventListener('click', (event) => {
         const node = event.target as HTMLElement;
@@ -24,7 +24,6 @@ class ProductOutput {
           this.showForm(+node.id);
         }
       });
-
     }
   }
 
@@ -57,9 +56,9 @@ class ProductOutput {
   }
 
   private getProduct(id: number) {
-    const products = this.products.filter(product => product.id === id);
+    const products = this.products.filter((product) => product.id === id);
     if (products.length) {
-      return products[0]
+      return products[0];
     }
     return null;
   }
@@ -87,17 +86,15 @@ class ProductOutput {
         // Validate data for product
         const product = new FoodProduct(id, name.value, icon.value);
         if (product.validate()) {
-          const index = this.products.findIndex(p => p.id === id);
+          const index = this.products.findIndex((p) => p.id === id);
           this.products[index] = product;
           const html = this.layoutProducts();
           this.output.innerHTML = html;
           this.hideForm();
-        }
-        else {
+        } else {
           this.getElement('.notification').classList.remove('is-hidden');
         }
-      }
-      else {
+      } else {
         this.hideForm();
       }
     }
@@ -114,7 +111,6 @@ class ProductOutput {
   private getFormElement(selector: string) {
     return this.getElement(selector) as HTMLFormElement;
   }
-
 }
 
 export default new ProductOutput();
