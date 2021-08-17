@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
-const excludeDirs = ['css', 'images', 'lib', 'api'];
+const excludeDirs = ['css', 'images', 'lib', 'api', '_hello-ts'];
 const htmlPlugins = generateHtmlPlugins('./src', excludeDirs);
 const entryPoints = generateEntryPoints('./src', 'index.ts', excludeDirs);
 
@@ -35,7 +35,7 @@ module.exports = {
     new MiniCssExtractPlugin({ filename: '[name]/style.css' }),
     new CopyPlugin({
       patterns: [
-        { from: 'src/images', to: 'images' }, 
+        { from: 'src/images', to: 'images' },
         { from: 'src/api', to: 'api' },
       ],
     }),
