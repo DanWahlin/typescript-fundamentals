@@ -75,13 +75,6 @@ function runTheLearningSamples() {
   console.log(`${prefix} function declaration`);
   console.log(addNumbersDeclaration(7, 11));
 
-  /**
-   *
-   * The main difference between a function expression and a function declaration
-   * is the function name, which can be omitted in function expressions
-   * to create anonymous functions
-   */
-
   // function expression (also anonymous)
   // not hoisted
   const addNumbersExpression = function (x: number, y: number) {
@@ -151,17 +144,13 @@ function runTheLearningSamples() {
 
   // async/await function
 
-  // CREATE EXAMPLE
-  // async function getProducts()
-  // ...
+  // *** async function getProducts()
 
   // Arrow functions
 
   // see
   // function displayProducts() and getProducts()
-  // CREATE EXAMPLE
-  // function layoutProducts()
-  // ...
+  // *** function layoutProducts()
 
   // Optional parameters
 
@@ -206,7 +195,7 @@ function runTheLearningSamples() {
   mango = createProductWithDefaults('mango');
   console.log(pineapple, mango);
 
-  // CREATE EXAMPLE updateOutput()
+  // *** updateOutput()
 
   // Rest parameters
 
@@ -242,5 +231,5 @@ function runTheLearningSamples() {
     displayProduct(prod);
   }
 
-  // MODIFY layoutProducts() to use destructuring
+  // ~~~ layoutProducts() uses destructuring
 }
