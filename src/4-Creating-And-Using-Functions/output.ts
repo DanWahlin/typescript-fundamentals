@@ -1,5 +1,7 @@
 import { productsURL } from '../lib';
 
+const prefix = '🐉 ';
+
 type ProductType = {
   id: number;
   name: string;
@@ -53,7 +55,6 @@ async function getProducts(): Promise<ProductType[]> {
 runTheLearningSamples();
 
 function runTheLearningSamples() {
-  const prefix = '🐉 ';
   // typed parameters
 
   function displayProductInfo(id: number, name: string) {
@@ -148,8 +149,7 @@ function runTheLearningSamples() {
 
   // Arrow functions
 
-  // see
-  // function displayProducts() and getProducts()
+  // see function displayProducts() and getProducts()
   // *** function layoutProducts()
 
   // Optional parameters
