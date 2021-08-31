@@ -68,13 +68,13 @@ function runTheLearningSamples() {
 
   // function declaration
   // hoisted
+  console.log(`${prefix} function declaration`);
+  console.log(addNumbersDeclaration(7, 11));
+
   function addNumbersDeclaration(x: number, y: number) {
     const sum: number = x + y;
     return sum;
   }
-
-  console.log(`${prefix} function declaration`);
-  console.log(addNumbersDeclaration(7, 11));
 
   // function expression (also anonymous)
   // not hoisted
