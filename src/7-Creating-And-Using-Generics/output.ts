@@ -82,23 +82,29 @@ async function runTheLearningSamples() {
   function whatIsIt_number(arg: number): number {
     return arg;
   }
+
   console.log(`${prefix} Generics Overview`);
   console.log(whatIsIt_number(11));
+
+  function whatIsIt_string(arg: string): string {
+    return arg;
+  }
+  console.log(whatIsIt_string('john'));
 
   function whatIsIt_any(arg: any): any {
     return arg;
   }
   console.log(whatIsIt_any(11));
+  console.log(whatIsIt_any('john'));
 
-  function whatIsIt_typed<Type>(arg: Type): Type {
+  function whatIsIt_typed<T>(arg: T): T {
     return arg;
   }
-  let n = whatIsIt_typed<number>(11);
-  console.log(n);
-  let s = whatIsIt_typed<string>('john');
-  console.log(s);
-  let b = whatIsIt_typed<boolean>(false);
-  console.log(b);
+
+  let n: number = whatIsIt_typed<number>(11);
+  let s: string = whatIsIt_typed<string>('john');
+  let b: boolean = whatIsIt_typed<boolean>(true);
+  console.log(n, s, b);
 
   // generics on functions
 
