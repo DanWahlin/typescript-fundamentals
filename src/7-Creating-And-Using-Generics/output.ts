@@ -101,13 +101,14 @@ async function runTheLearningSamples() {
   console.log(b);
 
   // generics on functions
+
+  // ~ examine getProducts() and how it returns a Promise<FoodProduct[]>
+  // ~ examine getList() and how it returns a Promise<T[]>
+
   interface Customer {
     id: number;
     name: string;
   }
-
-  // ~ examine getProducts() and how it returns a Promise<FoodProduct[]>
-  // ~ examine getList() and how it returns a Promise<T[]>
 
   async function getData() {
     console.log(`${prefix} Generic Functions`);
