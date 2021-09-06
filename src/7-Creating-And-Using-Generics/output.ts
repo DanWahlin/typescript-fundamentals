@@ -67,7 +67,7 @@ async function getProducts(): Promise<FoodProduct[]> {
 
 async function getList<T>(url: string): Promise<T[]> {
   const response: Response = await fetch(url);
-  const items: Array<T> = await response.json();
+  const items: T[] = await response.json();
   return items;
 }
 
@@ -101,13 +101,13 @@ async function runTheLearningSamples() {
   console.log(b);
 
   // generics on functions
+
+  // ~ examine getProducts() and how it returns a Promise<FoodProduct[]>
+
   interface Customer {
     id: number;
     name: string;
   }
-
-  // ~ examine getProducts() and how it returns a Promise<FoodProduct[]>
-  // ~ examine getList() and how it returns a Promise<T[]>
 
   async function getData() {
     console.log(`${prefix} Generic Functions`);
@@ -120,7 +120,7 @@ async function runTheLearningSamples() {
   }
   await getData();
 
-  // ~ updateOutput() for the generic getList<T>
+  // ~ examine getList() and how it returns a Promise<T[]>
 
   // generic interface
 
