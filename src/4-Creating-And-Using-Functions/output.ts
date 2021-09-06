@@ -19,11 +19,11 @@ export default async function updateOutput(id: string = 'output') {
 }
 
 function layoutProducts(products: ProductType[]) {
-  const items = products.map((p) => {
+  const items = products.map(({ id, name, icon }) => {
     const productHtml = `
-    <span class="card-id">#${p.id}</span>
-      <i class="card-icon ${p.icon} fa-lg"></i>
-    <span class="card-name">${p.name}</span>
+    <span class="card-id">#${id}</span>
+      <i class="card-icon ${icon} fa-lg"></i>
+    <span class="card-name">${name}</span>
     `;
     const cardHtml = `
     <li>
@@ -229,5 +229,6 @@ function runTheLearningSamples() {
     displayProduct(prod);
   }
 
+  // ~~~ Math destructuring
   // ~~~ layoutProducts() uses destructuring
 }
