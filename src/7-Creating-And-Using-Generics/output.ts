@@ -169,13 +169,17 @@ async function runTheLearningSamples() {
 
   // see GenericModel and how it extends the T ==> class GenericModel<T extends HasId> {}
 
-  // ReadOnly<T> and Partial<T>
+  // Built-in Constraints
+
+  // ReadOnly<T> constraint
 
   let model: FoodModel = new FoodModel();
   await model.getItems();
   let roFoodItem: Readonly<FoodProduct | undefined> = model.getItemById(10);
   // roFoodItem.name = 'some name';
   // roFoodItem.icon = 'some icon';
+
+  // Partial<T> constraint
 
   const pear = { name: 'pear' };
   // let pearFood: FoodProduct = pear;
