@@ -127,13 +127,11 @@ async function runTheLearningSamples() {
   }
   await getData();
 
-  // ~ examine getList() and how it returns a Promise<T[]>
-
   // generic interface
 
   interface Model<T> {
     items: T[] | undefined;
-    getItems: () => Promise<Array<T>>;
+    getItems: () => Promise<T[]>;
     getItemById: (id: number) => T | undefined;
   }
 
@@ -146,7 +144,7 @@ async function runTheLearningSamples() {
     }
 
     getItemById(id: number): FoodProduct | undefined {
-      return this.items ? this.items.find((p) => (id = p.id)) : undefined;
+      return this.items ? this.items.find((item) => (id = item.id)) : undefined;
     }
   }
 
@@ -160,9 +158,12 @@ async function runTheLearningSamples() {
   // see GenericModel<T>
 
   const genericFoodModel = new GenericModel<FoodProduct>(productsURL);
+  const genericCustomerModel = new GenericModel<Customer>(customersURL);
   await genericFoodModel.getItems();
+  await genericCustomerModel.getItems();
   console.log(`${prefix} Generic Class`);
   console.table(genericFoodModel.items);
+  console.table(genericCustomerModel.items);
 
   // generic constraints
 
