@@ -68,17 +68,17 @@ function runTheLearningSamples() {
 
   // function declaration
   // hoisted
+  console.log(`${prefix} function declaration`);
+  console.log(addNumbersDeclaration(7, 11));
+
   function addNumbersDeclaration(x: number, y: number) {
     const sum: number = x + y;
     return sum;
   }
 
-  console.log(`${prefix} function declaration`);
-  console.log(addNumbersDeclaration(7, 11));
-
   // function expression (also anonymous)
   // not hoisted
-  const addNumbersExpression = function (x: number, y: number) {
+  const addNumbersExpression = function (x: number, y: number): number {
     const sum: number = x + y;
     return sum;
   };
@@ -149,8 +149,9 @@ function runTheLearningSamples() {
 
   // Arrow functions
 
-  // see function displayProducts() and getProducts()
-  // *** function layoutProducts()
+  // see function displayProducts()
+  // and layoutProducts()
+  // and getProductById()
 
   // Optional parameters
 
@@ -163,9 +164,8 @@ function runTheLearningSamples() {
     };
   }
 
-  function getRandomInt(max: number) {
-    return Math.floor(Math.random() * max);
-  }
+  const { floor, random } = Math;
+  const getRandomInt = (max: number = 1000) => floor(random() * max);
 
   console.log(`${prefix} Optional parameters`);
   let pineapple = createProduct('pineapple', 'pine-apple.jpg');
@@ -174,15 +174,13 @@ function runTheLearningSamples() {
 
   // Default parameters
 
-  function getRandomInt2(max: number = 1000) {
-    return Math.floor(Math.random() * max);
-  }
+  // modify getRandomInt()
 
   function createProductWithDefaults(
     name: string,
     icon: string = 'generic-fruit.jpg',
   ): ProductType {
-    const id = getRandomInt2(1000);
+    const id = getRandomInt();
     return {
       id,
       name,
@@ -231,5 +229,6 @@ function runTheLearningSamples() {
     displayProduct(prod);
   }
 
+  // ~~~ Math destructuring
   // ~~~ layoutProducts() uses destructuring
 }
