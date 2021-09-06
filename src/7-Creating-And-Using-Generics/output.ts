@@ -67,7 +67,7 @@ async function getProducts(): Promise<FoodProduct[]> {
 
 async function getList<T>(url: string): Promise<T[]> {
   const response: Response = await fetch(url);
-  const items: Array<T> = await response.json();
+  const items: T[] = await response.json();
   return items;
 }
 
