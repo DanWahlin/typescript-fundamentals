@@ -103,7 +103,6 @@ async function runTheLearningSamples() {
   // generics on functions
 
   // ~ examine getProducts() and how it returns a Promise<FoodProduct[]>
-  // ~ examine getList() and how it returns a Promise<T[]>
 
   interface Customer {
     id: number;
@@ -121,7 +120,7 @@ async function runTheLearningSamples() {
   }
   await getData();
 
-  // ~ updateOutput() for the generic getList<T>
+  // ~ examine getList() and how it returns a Promise<T[]>
 
   // generic interface
 
