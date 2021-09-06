@@ -20,11 +20,11 @@ class GenericModel<T extends HasId> {
   }
 }
 
+const foodModel = new GenericModel<FoodProduct>(productsURL);
+
 export default async function updateOutput(id: string = 'output') {
   // const products = await getProducts();
   // const products = await getList<FoodProduct>(productsURL);
-
-  const foodModel = new GenericModel<FoodProduct>(productsURL);
   const products = await foodModel.getItems();
 
   const output = document.querySelector(`#${id}`);
@@ -78,12 +78,7 @@ async function getList<T>(url: string): Promise<T[]> {
 runTheLearningSamples();
 
 async function runTheLearningSamples() {
-  // any vs generics
-  //  create a component that can work over a variety of types rather than a
-  // single one. This allows users to consume these components and use their
-  // own types.
-
-  // generics overview
+  // Reusable code with generics
   function whatIsIt_number(arg: number): number {
     return arg;
   }
@@ -166,11 +161,15 @@ async function runTheLearningSamples() {
 
   // see GenericModel and how it extends the T ==> class GenericModel<T extends HasId> {}
 
-  // ReadOnly<T>
+  // ReadOnly<T> and Partial<T>
 
   let model: FoodModel = new FoodModel();
   await model.getItems();
   let roFoodItem: Readonly<FoodProduct | undefined> = model.getItemById(10);
   // roFoodItem.name = 'some name';
   // roFoodItem.icon = 'some icon';
+
+  const pear = { name: 'pear' };
+  // let pearFood: FoodProduct = pear;
+  let pearFood: Partial<FoodProduct> = pear;
 }
