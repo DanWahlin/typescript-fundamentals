@@ -2,9 +2,31 @@ import { productsURL, FoodProduct, customersURL } from '../lib';
 
 const prefix = '🐉 ';
 
+interface HasId {
+  id: number;
+}
+
+class GenericModel<T extends HasId> {
+  public items: T[] | undefined;
+  constructor(public url: string) {}
+
+  async getItems(): Promise<T[]> {
+    this.items = await getList<T>(this.url);
+    return this.items;
+  }
+
+  getItemById(id: number): T | undefined {
+    return this.items ? this.items.find((p) => (id = p.id)) : undefined;
+  }
+}
+
 export default async function updateOutput(id: string = 'output') {
   // const products = await getProducts();
-  const products = await getList<FoodProduct>(productsURL);
+  // const products = await getList<FoodProduct>(productsURL);
+
+  const foodModel = new GenericModel<FoodProduct>(productsURL);
+  const products = await foodModel.getItems();
+
   const output = document.querySelector(`#${id}`);
   const html = layoutProducts(products);
 
@@ -46,7 +68,6 @@ async function getProducts(): Promise<FoodProduct[]> {
 async function getList<T>(url: string): Promise<T[]> {
   const response: Response = await fetch(url);
   const items: Array<T> = await response.json();
-  console.log(`Array has ${items.length} elements`);
   return items;
 }
 
@@ -117,15 +138,13 @@ async function runTheLearningSamples() {
   class FoodModel implements Model<FoodProduct> {
     public items: FoodProduct[] | undefined;
 
-    async getItems() {
-      return await getList<FoodProduct>(productsURL);
+    async getItems(): Promise<FoodProduct[]> {
+      this.items = await getList<FoodProduct>(productsURL);
+      return this.items;
     }
 
     getItemById(id: number): FoodProduct | undefined {
-      if (this.items) {
-        return this.items.find((p) => (id = p.id));
-      }
-      return undefined;
+      return this.items ? this.items.find((p) => (id = p.id)) : undefined;
     }
   }
 
@@ -136,26 +155,7 @@ async function runTheLearningSamples() {
 
   // generic classes
 
-  interface HasId {
-    id: number;
-  }
-
-  // class GenericModel<T> {
-  class GenericModel<T extends HasId> {
-    public items: T[] | undefined;
-    constructor(public url: string) {}
-
-    async getItems() {
-      return await getList<T>(this.url);
-    }
-
-    getItemById(id: number): T | undefined {
-      if (this.items) {
-        return this.items.find((i) => (id = i.id));
-      }
-      return undefined;
-    }
-  }
+  // see GenericModel<T>
 
   const genericFoodModel = new GenericModel<FoodProduct>(productsURL);
   await genericFoodModel.getItems();
@@ -164,10 +164,7 @@ async function runTheLearningSamples() {
 
   // generic constraints
 
-  // ~ GenericModel to use HasId
-
-  // uncomment the interface
-  // extend the T ==> class GenericModel<T extends HasId> {}
+  // see GenericModel and how it extends the T ==> class GenericModel<T extends HasId> {}
 
   // ReadOnly<T>
 
