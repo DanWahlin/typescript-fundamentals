@@ -45,7 +45,6 @@ module.exports = {
     }),
   ].concat(htmlPlugins),
   devServer: {
-    contentBase: './dist',
     compress: true,
     port: 9000,
   },
