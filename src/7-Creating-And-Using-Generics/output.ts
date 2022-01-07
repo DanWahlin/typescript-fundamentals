@@ -144,7 +144,7 @@ async function runTheLearningSamples() {
     }
 
     getItemById(id: number): FoodProduct | undefined {
-      return this.items ? this.items.find((item) => (id = item.id)) : undefined;
+      return this.items ? this.items.find((item) => (id === item.id)) : undefined;
     }
   }
 
